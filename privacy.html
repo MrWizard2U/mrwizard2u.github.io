@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for all Mutant Wizard software.">
+    <title>Mutant Wizard — Privacy</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>&#128274; Privacy Policy &mdash; <span class="h1-sub">your safety guarantee</span></h1>
+                <p>Last updated: January 2026 &nbsp;&middot;&nbsp; Applies to all software by Mutant Wizard</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2 class="section-label">Overview</h2>
+                <p>Software published by Mutant Wizard does not collect, store, transmit or share
+                   any personal data. This policy applies to all my applications including SysBar, ClockAlarm,
+                   SessionResetUtility, any other software not mentioned here and any of my future releases.</p>
+
+                <h2 class="section-label">Data I Do Not Collect</h2>
+                <ul>
+                    <li>No personal information of any kind</li>
+                    <li>No usage statistics or analytics</li>
+                    <li>No crash reports or diagnostic data</li>
+                    <li>No hardware identifiers or system information</li>
+                    <li>No network traffic monitoring beyond local loopback (127.0.0.1)</li>
+                    <li>No advertising identifiers</li>
+                    <li>No location data</li>
+                </ul>
+
+                <h2 class="section-label">Local Data Only</h2>
+                <p>SysBar communicates exclusively with LibreHardwareMonitor running on your own
+                   machine via localhost (127.0.0.1). No data leaves your computer. Configuration
+                   is stored in a local file at:</p>
+                <p><code>%LOCALAPPDATA%\TaskbarWidget\TaskbarWidget.ini</code></p>
+                <p>This file contains only your display preferences and is never transmitted anywhere.</p>
+
+                <h2 class="section-label">Third-Party Services</h2>
+                <p>My software does not integrate with any third-party services, advertising
+                   networks, or analytics platforms.</p>
+
+                <h2 class="section-label">Microsoft Store</h2>
+                <p>When you download software through the Microsoft Store, Microsoft may collect
+                   data about that transaction in accordance with their own privacy policy at
+                   <a href="https://privacy.microsoft.com" target="_blank">privacy.microsoft.com</a>.
+                   Mutant Wizard or my software have no access to that data.</p>
+
+                <h2 class="section-label">Children</h2>
+                <p>My software is appropriate for all ages and does not collect any data from
+                   any users regardless of age.</p>
+
+                <h2 class="section-label">Changes to This Policy</h2>
+                <p>If this policy changes, the updated version will be posted at this URL with
+                   a revised date. Changes will only ever reflect additions to our software
+                   lineup — the core commitment to zero data collection will not change.</p>
+
+                <h2 class="section-label">Contact</h2>
+                <p>Questions about this privacy policy:
+                   <a href="mailto:sendtowizzard@gmail.com">sendtowizzard@gmail.com</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    });
+</script>
+</body>
+</html>

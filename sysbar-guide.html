@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysBar — User Guide</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>SysBar <span class="h1-sub">— User Guide</span></h1>
+                <p class="subtitle">Everything you need to get SysBar running and customised on your taskbar.</p>
+            </div>
+
+            <p class="section-label">Requirements</p>
+            <div class="card">
+                <ul>
+                    <li><a href="https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases" target="_blank" rel="noopener">LibreHardwareMonitor (LHM)</a> must be running.</li>
+                    <li>In LHM: <strong>Options → Remote Web Server → Enable</strong></li>
+                    <li>Default port is <strong>8085</strong>. Change it in SysBar Settings if you use a different port.</li>
+                    <li>Run LHM as <strong>Administrator</strong> for full sensor access (CPU power, some temps).</li>
+                </ul>
+            </div>
+
+            <h2 class="section-label">Getting Started</h2>
+            <div class="card">
+                <ol>
+                    <li>Start LibreHardwareMonitor as Administrator.</li>
+                    <li>In LHM: <strong>Options → Remote Web Server → Enable</strong>.</li>
+                    <li>Launch SysBar — the widget appears left of your system clock.</li>
+                    <li><strong>Left-click</strong> the widget at any time to instantly open Task Manager.</li>
+                    <li>Right-click the widget → <strong>Settings</strong>.</li>
+                    <li>Select which parameters to display (up to 6 columns).</li>
+                    <li>Select your GPU and Disk device if those parameters are enabled.</li>
+                    <li>Tick <strong>Run SysBar automatically on Windows startup</strong> if you want it to launch when you log in.</li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ol>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;"><em>Note: If SysBar starts automatically with Windows, it will remain invisible for the first 5 seconds to ensure your taskbar icons and LibreHardwareMonitor have finished loading.</em></p>
+            </div>
+
+            <h2 class="section-label">Available Parameters</h2>
+            <div class="card">
+                <table class="param-table">
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th>Parameter</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>CPU</code></td><td>CPU Load %</td><td>Total across all cores</td></tr>
+                        <tr><td><code>Tmp</code></td><td>CPU Temperature °C</td><td>Core or package sensor</td></tr>
+                        <tr><td><code>MHz</code></td><td>CPU Clock MHz</td><td>First performance core</td></tr>
+                        <tr><td><code>CPW</code></td><td>CPU Power (W)</td><td>Package power draw</td></tr>
+                        <tr><td><code>RAM</code></td><td>RAM Load %</td><td>Physical memory usage</td></tr>
+                        <tr><td><code>RmG</code></td><td>RAM Used GB</td><td>Absolute memory used</td></tr>
+                        <tr><td><code>RmT</code></td><td>RAM Temperature °C</td><td>DIMM sensor (if present)</td></tr>
+                        <tr><td><code>GL</code></td><td>GPU Load %</td><td>3D engine load preferred</td></tr>
+                        <tr><td><code>GT</code></td><td>GPU Temperature °C</td><td>GPU core temp</td></tr>
+                        <tr><td><code>GM</code></td><td>GPU Memory MB</td><td>VRAM used</td></tr>
+                        <tr><td><code>GW</code></td><td>GPU Power (W)</td><td>GPU power draw</td></tr>
+                        <tr><td><code>Dsk</code></td><td>Disk Read + Write</td><td>Fixed pair — one full column</td></tr>
+                        <tr><td><code>Net</code></td><td>Network Up + Down</td><td>Fixed pair — always rightmost column</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="section-label">Display Layout</h2>
+            <div class="card">
+                <ul>
+                    <li>Parameters pack <strong>2 per column</strong>, related params placed adjacent where possible.</li>
+                    <li><strong>Network</strong> is always the rightmost column.</li>
+                    <li><strong>Disk</strong> is always second from right.</li>
+                    <li>The widget grows <strong>leftward</strong> from the system clock as more params are enabled.</li>
+                    <li>Maximum <strong>6 columns</strong>. The Settings dialog will warn you if your selection exceeds this.</li>
+                    <li>The widget and all dialogs will automatically adapt to your Windows <strong>Light or Dark Mode</strong> theme natively.</li>
+                </ul>
+            </div>
+
+            <h2 class="section-label">Network</h2>
+            <div class="card">
+                <ul>
+                    <li>All physical network adapters are <strong>aggregated</strong> into a single Up / Down reading.</li>
+                    <li>Virtual, Bluetooth, Hyper-V, VMware, tunnel, Teredo and ISATAP adapters are <strong>automatically excluded</strong>.</li>
+                    <li>You can manually select which adapters to include in <strong>Settings → Network Adapters</strong>.</li>
+                </ul>
+            </div>
+
+            <h2 class="section-label">Sensor Discovery</h2>
+            <div class="card">
+                <ul>
+                    <li>Sensors are discovered automatically from LHM on startup and refreshed every 60 seconds.</li>
+                    <li>Works across LHM versions and hardware vendors (Intel, AMD, NVIDIA).</li>
+                    <li>GPU and Disk selection in Settings lets you pin a specific device when multiple are present.</li>
+                </ul>
+            </div>
+
+            <h2 class="section-label">Status Indicators</h2>
+            <div class="card">
+                <table class="param-table">
+                    <tbody>
+                        <tr>
+                            <td style="white-space:nowrap; width:1%;"><code>N/A</code></td>
+                            <td>Sensor not present on this hardware (LHM is running, but this sensor doesn't exist for your CPU/GPU/etc.)</td>
+                        </tr>
+                        <tr>
+                            <td style="white-space:nowrap;"><code>--</code></td>
+                            <td>LHM is offline or not reachable. Start LHM and enable its Remote Web Server.</td>
+                        </tr>
+                        <tr>
+                            <td style="white-space:nowrap;"><code>OFF</code></td>
+                            <td>No parameters selected in Settings.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="section-label">Troubleshooting</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Widget doesn't appear immediately on startup:</strong> This is intentional. SysBar waits 5 seconds on auto-start to allow LHM and taskbar icons to initialize without visual glitches.</li>
+                    <li><strong>Widget shows -- for everything:</strong> LHM is not running or its Remote Web Server is not enabled.</li>
+                    <li><strong>Some sensors show N/A:</strong> Normal — your hardware doesn't expose that sensor to LHM.</li>
+                    <li><strong>Wrong GPU selected:</strong> Open Settings and choose your GPU from the dropdown.</li>
+                    <li><strong>Network shows 0 or N/A:</strong> Check Settings → Network Adapters and ensure the correct adapter is selected.</li>
+                    <li><strong>Widget is on the far right instead of next to the clock:</strong> SysBar uses a safe fallback position if it cannot detect the standard Windows system tray (e.g., on secondary monitors or heavily modified shells).</li>
+                    <li><strong>CPU power / some temps always N/A:</strong> Run LHM as Administrator.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="support-band">
+            <h3>Need more help?</h3>
+            <p>If something isn't covered here, reach out directly.</p>
+            <a href="tech-support.html" class="btn btn-primary">Contact Support</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    });
+</script>
+</body>
+</html>

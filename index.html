@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mutant Wizard — Independent software developer. Free, ad-free utilities and apps for power users.">
+    <title>Mutant Wizard — Software</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h2>Free. Ad-free. No telemetry.</h2>
+                <p>I build efficient, focused utilities and apps for power users who want clean tools
+                   that stay out of the way. Everything here is free to download, free to use, and
+                   contains no advertising or data collection of any kind.</p>
+            </div>
+
+            <p class="section-label">Apps</p>
+
+            <div class="card app-card">
+                <div>
+                    <h4>SysBar — Real-Time Hardware Monitor</h4>
+                    <p>Live CPU, GPU, RAM, Network and Disk stats on your Windows taskbar.
+                       Powered by LibreHardwareMonitor.</p>
+                </div>
+                <div class="app-links">
+                    <a class="btn btn-store"  href="https://apps.microsoft.com/store/detail/sysbar" target="_blank" rel="noopener">MS Store</a>
+                    <a class="btn btn-github" href="https://github.com/MrWizard2U/SysBar"          target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-band">
+            <h3>Support Development</h3>
+            <p>All apps are free and ad-free. If my work saves you time or you just want to say thanks,<br>
+               buying me a coffee helps keep the lights on and updates coming.</p>
+            <a class="donate-btn" href="donate.html">&#9749; Support development — buy me a coffee</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    })
+    .catch(err => console.warn('menu.html failed to load:', err));
+</script>
+
+</body>
+</html>

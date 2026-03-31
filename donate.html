@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support Mutant Wizard — buy me a coffee or donate crypto to help fund free software development.">
+    <title>Mutant Wizard — Donate</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>&#9749; Support Development &mdash; <span class="h1-sub">buy me a coffee</span></h1>
+                <p class="subtitle">All software by Mutant Wizard is free and ad-free.<br>
+                   If you find it useful, any contribution is genuinely appreciated<br>
+                   and helps fund continued development.</p>
+            </div>
+
+            <p class="section-label">Cryptocurrency</p>
+            <p class="crypto-hint">Click any coin to reveal the wallet address and QR code.</p>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('btc')">
+                    <span class="crypto-icon">&#8383;</span>
+                    <span class="crypto-name">Bitcoin</span><span class="crypto-ticker">BTC</span>
+                    <span class="expand-icon" id="icon-btc">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="btc">
+                    <div class="address-row">
+                        <div class="address-box">bc1qc6wdf2e9vxaqunxv9xfh4gratrwz84fjlkfmzl</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'bc1qc6wdf2e9vxaqunxv9xfh4gratrwz84fjlkfmzl')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=bc1qc6wdf2e9vxaqunxv9xfh4gratrwz84fjlkfmzl" width="160" height="160" alt="Bitcoin QR" loading="lazy">
+                        <p class="qr-label">Scan with your Bitcoin wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('eth')">
+                    <span class="crypto-icon">&#926;</span>
+                    <span class="crypto-name">Ethereum</span><span class="crypto-ticker">ETH</span>
+                    <span class="expand-icon" id="icon-eth">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="eth">
+                    <div class="address-row">
+                        <div class="address-box">0x9DAdD3c0140E8f0D8b0cc2d15345C1A18eDaAB10</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'0x9DAdD3c0140E8f0D8b0cc2d15345C1A18eDaAB10')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=0x9DAdD3c0140E8f0D8b0cc2d15345C1A18eDaAB10" width="160" height="160" alt="Ethereum QR" loading="lazy">
+                        <p class="qr-label">Scan with your Ethereum wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('xmr')">
+                    <span class="crypto-icon">&#x24C2;</span>
+                    <span class="crypto-name">Monero</span><span class="crypto-ticker">XMR</span>
+                    <span class="expand-icon" id="icon-xmr">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="xmr">
+                    <div class="address-row">
+                        <div class="address-box">86rb7JnB7SeJ1nhn6pr42m8yPgrf2BPBxWL3m5GGXu2AZQPuZCphwmk6ygVUtQqsKmhjKmzQeTHCHUEXJ1qGPrgQNhediHg</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'86rb7JnB7SeJ1nhn6pr42m8yPgrf2BPBxWL3m5GGXu2AZQPuZCphwmk6ygVUtQqsKmhjKmzQeTHCHUEXJ1qGPrgQNhediHg')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=86rb7JnB7SeJ1nhn6pr42m8yPgrf2BPBxWL3m5GGXu2AZQPuZCphwmk6ygVUtQqsKmhjKmzQeTHCHUEXJ1qGPrgQNhediHg" width="160" height="160" alt="Monero QR" loading="lazy">
+                        <p class="qr-label">Scan with your Monero wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('ltc')">
+                    <span class="crypto-icon">&#321;</span>
+                    <span class="crypto-name">Litecoin</span><span class="crypto-ticker">LTC</span>
+                    <span class="expand-icon" id="icon-ltc">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="ltc">
+                    <div class="address-row">
+                        <div class="address-box">ltc1qywaj6upag76ygnnesyy79w8q93u84fykh883tn</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'ltc1qywaj6upag76ygnnesyy79w8q93u84fykh883tn')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=ltc1qywaj6upag76ygnnesyy79w8q93u84fykh883tn" width="160" height="160" alt="Litecoin QR" loading="lazy">
+                        <p class="qr-label">Scan with your Litecoin wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('doge')">
+                    <span class="crypto-icon">&#208;</span>
+                    <span class="crypto-name">Dogecoin</span><span class="crypto-ticker">DOGE</span>
+                    <span class="expand-icon" id="icon-doge">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="doge">
+                    <div class="address-row">
+                        <div class="address-box">D87AmmX8rpRTh1g5Jb3EAtZkQvEUFmcrLP</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'D87AmmX8rpRTh1g5Jb3EAtZkQvEUFmcrLP')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=D87AmmX8rpRTh1g5Jb3EAtZkQvEUFmcrLP" width="160" height="160" alt="Dogecoin QR" loading="lazy">
+                        <p class="qr-label">Scan with your Dogecoin wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card crypto-card">
+                <div class="crypto-header" onclick="toggle('bch')">
+                    <span class="crypto-icon">&#8383;</span>
+                    <span class="crypto-name">Bitcoin Cash</span><span class="crypto-ticker">BCH</span>
+                    <span class="expand-icon" id="icon-bch">&#9660;</span>
+                </div>
+                <div class="crypto-detail" id="bch">
+                    <div class="address-row">
+                        <div class="address-box">bitcoincash:qrf7mw8jpnqddldxpchx0gt0edhv5ac49qj0cq5y8t</div>
+                        <button class="copy-btn" onclick="copyAddr(this,'bitcoincash:qrf7mw8jpnqddldxpchx0gt0edhv5ac49qj0cq5y8t')">Copy</button>
+                    </div>
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=bitcoincash:qrf7mw8jpnqddldxpchx0gt0edhv5ac49qj0cq5y8t" width="160" height="160" alt="Bitcoin Cash QR" loading="lazy">
+                        <p class="qr-label">Scan with your Bitcoin Cash wallet</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="donate-note">Crypto donations go directly to my cold wallet &mdash; no intermediary, no platform fees.<br>Only the standard network transaction fee applies.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    });
+
+function toggle(id) {
+    const detail = document.getElementById(id);
+    const icon   = document.getElementById('icon-' + id);
+    const isOpen = detail.classList.contains('open');
+    detail.classList.toggle('open', !isOpen);
+    icon.innerHTML = isOpen ? '&#9660;' : '&#9650;';
+}
+
+function copyAddr(btn, addr) {
+    navigator.clipboard.writeText(addr).then(() => {
+        btn.textContent = 'Copied \u2713';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = addr; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = 'Copied \u2713'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysBar — About</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>SysBar <span class="h1-sub">— About</span></h1>
+                <p class="subtitle">Real-time hardware monitoring on your Windows taskbar. Free, ad-free, no telemetry.</p>
+            </div>
+
+            <p class="section-label">Overview</p>
+            <div class="card">
+                <p>SysBar is a lightweight, transparent taskbar widget that displays live CPU, GPU, RAM, Network and Disk stats directly alongside your system clock. No overlay windows. No floating panels. Just clean, always-visible stats that adapt natively to your Windows Light or Dark Mode theme.</p>
+                <p>No ads. No telemetry. No internet access. All sensor data comes from your local LibreHardwareMonitor instance running on your own machine.</p>
+            </div>
+
+            <h2 class="section-label">Version</h2>
+            <div class="card">
+                <p><strong>Version 1.2.0</strong><br>
+                Platform: Windows 10 (1809+) &amp; Windows 11 &nbsp;·&nbsp; Architecture: x64<br>
+                Author: <a href="index.html">Mutant Wizard</a></p>
+            </div>
+
+            <h2 class="section-label">Download</h2>
+            <div class="card app-card">
+                <div>
+                    <h4>SysBar</h4>
+                    <p>Available on the Microsoft Store and GitHub.</p>
+                </div>
+                <div class="app-links">
+                    <a href="https://apps.microsoft.com/store/detail/sysbar" class="btn btn-store" target="_blank" rel="noopener">MS Store</a>
+                    <a href="https://github.com/MrWizard2U/SysBar" class="btn btn-github" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+
+            <h2 class="section-label" style="margin-top:48px;">Attribution</h2>
+            <p>SysBar is built on the shoulders of the following open-source projects.</p>
+
+            <div class="card">
+                <h4>LibreHardwareMonitor</h4>
+                <p>Provides all hardware sensor data via its Remote Web Server (localhost). SysBar queries LHM's JSON API to read CPU, GPU, RAM, disk and network metrics.</p>
+                <p>License: <a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank" rel="noopener">Mozilla Public License 2.0 (MPL-2.0)</a><br>
+                <a href="https://github.com/LibreHardwareMonitor/LibreHardwareMonitor" target="_blank" rel="noopener">github.com/LibreHardwareMonitor</a></p>
+            </div>
+
+            <div class="card">
+                <h4>nlohmann/json</h4>
+                <p>Single-header C++ JSON library used to parse the data returned by LibreHardwareMonitor's web server.</p>
+                <p>License: <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
+                <a href="https://github.com/nlohmann/json" target="_blank" rel="noopener">github.com/nlohmann/json</a></p>
+            </div>
+
+            <div class="card">
+                <p class="text-dim">All other code is original work by <a href="index.html">Mutant Wizard</a>. Copyright &copy; 2026.</p>
+            </div>
+        </div>
+
+        <div class="support-band">
+            <h3>Support Development</h3>
+            <p>All apps are free and ad-free. If SysBar saves you time, buying me a coffee helps keep updates coming.</p>
+            <a href="donate.html" class="donate-btn">☕ Buy me a coffee</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    });
+</script>
+</body>
+</html>

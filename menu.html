@@ -1,0 +1,156 @@
+<!-- ============================================================
+     SITE NAV — menu.html
+     Fetched and injected into #site-nav-placeholder by each page.
+     All .snav-* styles live in styles.css.
+============================================================ -->
+
+<nav class="snav">
+
+    <!-- Banner image — sits above all nav links, height matches .site-header -->
+    <img class="snav-banner"
+         src="WizardSoftware.png"
+         alt="Mutant Wizard — Independent Software Development">
+
+    <!-- ─── Home ───────────────────────────────────── -->
+    <a class="snav-link" href="index.html">Home</a>
+
+    <div class="snav-divider"></div>
+
+    <!-- ─── Software section ────────────────────────── -->
+    <div class="snav-group">Software</div>
+
+    <!-- SysBar -->
+    <div class="snav-app">
+        <div class="snav-app-btn" role="button" aria-expanded="false" tabindex="0">
+            <span class="snav-app-label">
+                SysBar
+                <span class="snav-app-sub">Real-Time Hardware Monitor</span>
+            </span>
+            <span class="snav-chevron">&#8250;</span>
+        </div>
+        <div class="snav-sub">
+            <a href="sysbar-about.html">About SysBar</a>
+            <a href="sysbar-guide.html">User Guide</a>
+            <a href="https://github.com/MrWizard2U/SysBar" target="_blank" rel="noopener">Source Code Repository ↗</a>
+        </div>
+    </div>
+
+    <!-- Placeholder — duplicate the SysBar block above when adding a new app -->
+    <div class="snav-app snav-app-placeholder">
+        <div class="snav-app-btn">
+            <span class="snav-app-label">
+                Other Software
+                <span class="snav-app-sub">Coming soon</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="snav-divider"></div>
+
+    <!-- ─── Resources section ───────────────────────── -->
+    <div class="snav-group">Resources</div>
+
+    <!-- ─── Site-wide links ──────────────────────────── -->
+    <a class="snav-link" href="tech-support.html">Tech Support</a>
+    <a class="snav-link" href="privacy.html">Privacy Policy</a>
+    <a class="snav-link" href="license.html">Software License</a>
+    <a class="snav-link snav-link--coffee" href="donate.html">☕ Buy Me a Coffee</a>
+
+</nav>
+
+<script>
+(function () {
+    // ── App submenu toggles (Accordion style) ─────────────────────────────────
+    var appBtns = document.querySelectorAll('.snav-app-btn');
+    appBtns.forEach(function (btn) {
+        function toggle() {
+            // Ignore the "Coming Soon" placeholder
+            if(btn.parentNode.classList.contains('snav-app-placeholder')) return;
+            
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            
+            // ACCORDION EFFECT: Close all other submenus first
+            appBtns.forEach(function (otherBtn) {
+                if (otherBtn !== btn) {
+                    otherBtn.setAttribute('aria-expanded', 'false');
+                    var otherSub = otherBtn.nextElementSibling;
+                    if (otherSub) otherSub.classList.remove('open');
+                }
+            });
+
+            // Toggle the clicked submenu
+            var sub = btn.nextElementSibling;
+            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            if (sub) sub.classList.toggle('open', !expanded);
+        }
+        
+        btn.addEventListener('click', toggle);
+        btn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+    });
+
+    // ── Auto-expand active submenu based on URL ───────────────────────────────
+    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    document.querySelectorAll('.snav-sub a').forEach(function (link) {
+        var href = link.getAttribute('href');
+        
+        // If the link points to the page we are currently on:
+        if (href && href !== '#' && (href === currentPath || window.location.href.endsWith(href))) {
+            
+            // 1. Visually highlight the active text
+            link.style.color = '#fff';
+            
+            // 2. Open the parent submenu automatically
+            var sub = link.closest('.snav-sub');
+            if (sub) {
+                sub.classList.add('open');
+                var btn = sub.previousElementSibling;
+                if (btn && btn.classList.contains('snav-app-btn')) {
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            }
+        }
+    });
+
+    // ── Mobile sidebar open/close ─────────────────────────────────────────────
+    var menuBtn  = document.getElementById('mobile-menu-btn');
+    var sidebar  = document.getElementById('sidebar');
+    var overlay  = document.getElementById('sidebar-overlay');
+    var closeBtn = document.getElementById('sidebar-close-btn');
+
+    function openSidebar() {
+        if (sidebar) sidebar.classList.add('open');
+        if (overlay) overlay.classList.add('visible');
+    }
+    function closeSidebar() {
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('visible');
+    }
+
+    if (menuBtn)  menuBtn.addEventListener('click', openSidebar);
+    if (overlay)  overlay.addEventListener('click', closeSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+
+    // ── Sync site-header height to banner image rendered height ───────────────
+    var banner = document.querySelector('.snav-banner');
+    if (banner && window.ResizeObserver) {
+        function syncHeaderHeight(height) { 
+            document.documentElement.style.setProperty('--banner-rendered-h', height + 'px'); 
+        }
+        if (banner.complete && banner.naturalHeight > 0) {
+            syncHeaderHeight(banner.getBoundingClientRect().height);
+        }
+        banner.addEventListener('load', function () { 
+            syncHeaderHeight(banner.getBoundingClientRect().height); 
+        });
+        var ro = new ResizeObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].contentRect.height > 0) syncHeaderHeight(entries[i].contentRect.height);
+            }
+        });
+        ro.observe(banner);
+    }
+})();
+</script>
