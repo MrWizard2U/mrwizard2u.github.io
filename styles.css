@@ -285,6 +285,42 @@ h2.section-label { margin-top: 32px; margin-bottom: 12px; font-weight: 400; }
 .form-status.error { background: #5c2c2c; color: #739be5; border: 1px solid #4a2a2a; }
 
 /* =========================================================
+   GALLERY & LIGHTBOX
+========================================================= */
+.gallery-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.gallery-img-container { cursor: zoom-in; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; border-radius: var(--rad-lg) var(--rad-lg) 0 0; }
+.gallery-img { width: 100%; height: auto; display: block; transition: transform 0.2s ease; }
+.gallery-img-container:hover .gallery-img { transform: scale(1.02); }
+.gallery-caption { 
+    padding: 16px 24px; margin: 0 !important; font-size: 0.9rem; color: #ccc; 
+    border-top: 1px solid var(--border-light); background: var(--bg-surface); 
+    font-family: 'Courier New', monospace; border-radius: 0 0 var(--rad-lg) var(--rad-lg);
+}
+
+/* Lightbox Overlay */
+.lightbox {
+    display: none; position: fixed; z-index: 9999; padding-top: 40px;
+    left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;
+    background-color: rgba(0,0,0,0.9);
+    opacity: 0; transition: opacity 0.3s ease;
+    align-items: center; justify-content: center; flex-direction: column;
+}
+.lightbox.show { opacity: 1; }
+.lightbox-content {
+    max-width: 90%; max-height: 80vh;
+    border-radius: var(--rad-md); box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+#lightbox-caption {
+    margin-top: 16px; color: #ccc; font-family: 'Courier New', monospace; font-size: 1rem;
+}
+.lightbox-close {
+    position: absolute; top: 20px; right: 35px;
+    color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.2s; cursor: pointer; user-select: none;
+}
+.lightbox-close:hover, .lightbox-close:focus { color: #bbb; text-decoration: none; }
+
+/* =========================================================
    FOOTER
 ========================================================= */
 footer { padding: 24px 40px; text-align: center; color: var(--border-hover); font-size: 0.8rem; border-top: 1px solid var(--bg-surface); }
