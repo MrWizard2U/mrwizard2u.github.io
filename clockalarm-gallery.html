@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClockAlarm — Gallery</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+    <style>
+        /* Specific overrides to move caption above the image */
+        .gallery-caption { 
+            padding: 16px 24px; 
+            margin: 0 !important; 
+            font-size: 0.9rem; 
+            color: #ccc; 
+            border-top: none !important;
+            border-bottom: 1px solid var(--border-light); 
+            background: var(--bg-surface); 
+            font-family: 'Courier New', monospace; 
+            border-radius: var(--rad-lg) var(--rad-lg) 0 0;
+        }
+        .gallery-img-container { 
+            border-radius: 0 0 var(--rad-lg) var(--rad-lg) !important; 
+        }
+        .gallery-spacer {
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<aside id="sidebar">
+    <button id="sidebar-close-btn" aria-label="Close menu">&times;</button>
+    <div id="site-nav-placeholder"></div>
+</aside>
+
+<div id="sidebar-overlay"></div>
+
+<div class="page-wrapper">
+
+    <header class="site-header">
+        <div class="header-brand">Mutant Wizard <span>Independent Software Development</span></div>
+    </header>
+
+    <div class="mobile-topbar">
+        <span class="mobile-topbar-brand">Mutant Wizard</span>
+        <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="page-heading">
+                <h1>ClockAlarm <span class="h1-sub">— Gallery</span></h1>
+                <p class="subtitle">Screenshots of ClockAlarm running natively on Windows.</p>
+            </div>
+
+            <!-- GALLERY ITEM 1 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Clock Mode</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Clock Mode')">
+                    <img src="images/clockalarm/clockalarm-dark-opaque.png" alt="ClockAlarm Clock Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 2 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Weather Mode</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Weather Mode')">
+                    <img src="images/clockalarm/clockalarm-dark-transparency.png" alt="ClockAlarm Weather Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 3 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — World Clock Mode</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — World Clock Mode')">
+                    <img src="images/clockalarm/clockalarm-light-transparency.png" alt="ClockAlarm World Clock Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 4 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Countdown Mode</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Countdown Mode')">
+                    <img src="images/clockalarm/clockalarm-light-theme.png" alt="ClockAlarm Countdown Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 5 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Context Menus</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Alarms Panel')">
+                    <img src="images/clockalarm/clockalarm-context-menu.png" alt="ClockAlarm Alarms Panel" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 6 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Alarms Panel</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Settings Dark Mode')">
+                    <img src="images/clockalarm/clockalarm-alarms-panel.png" alt="ClockAlarm Settings Dark Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 7 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Alarm Builder</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Settings Dark Mode')">
+                    <img src="images/clockalarm/clockalarm-alarm-builder.png" alt="ClockAlarm Settings Dark Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 8 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — World Clock Settings</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Settings Dark Mode')">
+                    <img src="images/clockalarm/clockalarm-worldclock-settings.png" alt="ClockAlarm Settings Dark Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 9 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Help & Tips Panel</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Settings Dark Mode')">
+                    <img src="images/clockalarm/clockalarm-help.png" alt="ClockAlarm Settings Dark Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- GALLERY ITEM 10 -->
+            <div class="card gallery-card">
+                <p class="gallery-caption">ClockAlarm — Alarm Ringing</p>
+                <div class="gallery-img-container" onclick="openLightbox(this, 'ClockAlarm — Settings Dark Mode')">
+                    <img src="images/clockalarm/clockalarm-alarm-ringing.png" alt="ClockAlarm Settings Dark Mode" class="gallery-img">
+                </div>
+            </div>
+
+            <!-- EMPTY ROW SPACER -->
+            <div class="gallery-spacer"></div>
+
+            <!-- Add more items following the same structure above -->
+
+        </div>
+
+        <div class="support-band">
+            <h3>Support Development</h3>
+            <p>All apps are free and ad-free. If ClockAlarm brightens your day, buying me a coffee helps keep updates coming.</p>
+            <a href="donate.html" class="donate-btn">☕ Buy me a coffee</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
+           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="mailto:sendtowizzard@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+</div>
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox-overlay" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption"></div>
+</div>
+
+<script>
+// --- Standard Sidebar Menu Injection ---
+var cacheBuster = '?v=' + new Date().getTime();
+fetch('menu.html' + cacheBuster)
+    .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
+    .then(html => {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var nav = doc.querySelector('nav.snav');
+        var holder = document.getElementById('site-nav-placeholder');
+        if (nav && holder) {
+            holder.appendChild(nav);
+            var scriptEl = doc.querySelector('script');
+            if (scriptEl) {
+                var s = document.createElement('script');
+                s.textContent = scriptEl.textContent;
+                document.body.appendChild(s);
+            }
+        }
+    });
+
+// --- Lightbox Logic ---
+function openLightbox(containerElement, captionText) {
+    var imgElement = containerElement.querySelector('img');
+    var lightbox = document.getElementById('lightbox-overlay');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCap = document.getElementById('lightbox-caption');
+
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgElement.src;
+    lightboxCap.innerText = captionText;
+
+    // Small delay to allow display:flex to apply before CSS opacity transition triggers
+    setTimeout(function() {
+        lightbox.classList.add('show');
+    }, 10);
+}
+
+function closeLightbox() {
+    var lightbox = document.getElementById('lightbox-overlay');
+    lightbox.classList.remove('show');
+    
+    // Wait for the opacity fade out transition to finish before hiding element
+    setTimeout(function() {
+        lightbox.style.display = "none";
+    }, 300);
+}
+</script>
+</body>
+</html>
