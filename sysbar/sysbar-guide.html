@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SysBar — User Guide</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="../styles.css?v=3">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
     <main>
         <div class="container">
             <div class="page-heading">
-                <h1>SysBar <span class="h1-sub">— User Guide</span></h1>
+                <h1>📊 SysBar <span class="h1-sub">— User Guide</span></h1>
                 <p class="subtitle">Everything you need to get SysBar running and customised on your taskbar.</p>
             </div>
 
@@ -156,14 +156,14 @@
         <div class="support-band">
             <h3>Need more help?</h3>
             <p>If something isn't covered here, reach out directly.</p>
-            <a href="tech-support.html" class="btn btn-primary">Contact Support</a>
+            <a href="../tech-support.html" class="btn btn-primary">Contact Support</a>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
-           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
-           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="../index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="../privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
            <a href="mailto:sendtowizzard@gmail.com">Contact</a>
         </p>
     </footer>
@@ -172,7 +172,7 @@
 
 <script>
 var cacheBuster = '?v=' + new Date().getTime();
-fetch('menu.html' + cacheBuster)
+fetch('../menu.html' + cacheBuster)
     .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
     .then(html => {
         var doc = new DOMParser().parseFromString(html, 'text/html');

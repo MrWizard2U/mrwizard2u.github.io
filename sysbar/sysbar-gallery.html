@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SysBar — Gallery</title>
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="../styles.css?v=4">
     <style>
         /* Specific overrides to move caption above the image */
         .gallery-caption { 
@@ -51,80 +51,69 @@
     <main>
         <div class="container">
             <div class="page-heading">
-                <h1>SysBar <span class="h1-sub">— Gallery</span></h1>
+                <h1>📊 SysBar <span class="h1-sub">— Gallery</span></h1>
                 <p class="subtitle">Screenshots of SysBar running natively on Windows.</p>
             </div>
 
-            <!-- GALLERY ITEM 1 -->
-            <div class="card gallery-card">
-                <p class="gallery-caption">SysBar Main Interface</p>
-                <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Main Interface')">
-                    <img src="images/sysbar/sysbar-main-interface.png" alt="SysBar Main Interface" class="gallery-img">
+            <div class="gallery-grid">
+
+                <!-- GALLERY ITEM 1 -->
+                <div class="card gallery-card">
+                    <p class="gallery-caption">SysBar Main Interface</p>
+                    <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Main Interface')">
+                        <img src="../images/sysbar/sysbar-main-interface.png" alt="SysBar Main Interface" class="gallery-img">
+                    </div>
                 </div>
-            </div>
 
-            <!-- EMPTY ROW SPACER -->
-            <div class="gallery-spacer"></div>
-
-                        <!-- GALLERY ITEM 2 -->
-            <div class="card gallery-card">
-                <p class="gallery-caption">SysBar Context Menu</p>
-                <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Context Menu')">
-                    <img src="images/sysbar/sysbar-context-menu.png" alt="SysBar Context Menu" class="gallery-img">
+                <!-- GALLERY ITEM 2 -->
+                <div class="card gallery-card">
+                    <p class="gallery-caption">SysBar Context Menu</p>
+                    <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Context Menu')">
+                        <img src="../images/sysbar/sysbar-context-menu.png" alt="SysBar Context Menu" class="gallery-img">
+                    </div>
                 </div>
-            </div>
 
-            <!-- EMPTY ROW SPACER -->
-            <div class="gallery-spacer"></div>
-
-            <!-- GALLERY ITEM 3 -->
-            <div class="card gallery-card">
-                <p class="gallery-caption">SysBar Settings Dark Mode</p>
-                <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Settings Dark Mode')">
-                    <img src="images/sysbar/sysbar-settings-dark-mode.png" alt="SysBar Settings Dark Mode" class="gallery-img">
+                <!-- GALLERY ITEM 3 -->
+                <div class="card gallery-card">
+                    <p class="gallery-caption">SysBar Settings Dark Mode</p>
+                    <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Settings Dark Mode')">
+                        <img src="../images/sysbar/sysbar-settings-dark-mode.png" alt="SysBar Settings Dark Mode" class="gallery-img">
+                    </div>
                 </div>
-            </div>
 
-            <!-- EMPTY ROW SPACER -->
-            <div class="gallery-spacer"></div>
-
-            <!-- GALLERY ITEM 4 -->
-            <div class="card gallery-card">
-                <p class="gallery-caption">SysBar Settings Dark Mode</p>
-                <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Settings Dark Mode')">
-                    <img src="images/sysbar/sysbar-about-window.png" alt="SysBar Settings Dark Mode" class="gallery-img">
+                <!-- GALLERY ITEM 4 -->
+                <div class="card gallery-card">
+                    <p class="gallery-caption">SysBar About Window</p>
+                    <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar About Window')">
+                        <img src="../images/sysbar/sysbar-about-window.png" alt="SysBar About Window" class="gallery-img">
+                    </div>
                 </div>
-            </div>
 
-            <!-- EMPTY ROW SPACER -->
-            <div class="gallery-spacer"></div>
-
-            <!-- GALLERY ITEM 5 -->
-            <div class="card gallery-card">
-                <p class="gallery-caption">SysBar Settings Dark Mode</p>
-                <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar Settings Dark Mode')">
-                    <img src="images/sysbar/sysbar-user-web-guide.png" alt="SysBar Settings Dark Mode" class="gallery-img">
+                <!-- GALLERY ITEM 5 -->
+                <div class="card gallery-card">
+                    <p class="gallery-caption">SysBar User Web Guide</p>
+                    <div class="gallery-img-container" onclick="openLightbox(this, 'SysBar User Web Guide')">
+                        <img src="../images/sysbar/sysbar-user-web-guide.png" alt="SysBar User Web Guide" class="gallery-img">
+                    </div>
                 </div>
-            </div>
 
-            <!-- EMPTY ROW SPACER -->
-            <div class="gallery-spacer"></div>            
+                <!-- Add more items following the same structure above -->
 
-            <!-- Add more items following the same structure above -->
+            </div><!-- /.gallery-grid -->
 
         </div>
 
         <div class="support-band">
             <h3>Support Development</h3>
             <p>All apps are free and ad-free. If SysBar saves you time, buying me a coffee helps keep updates coming.</p>
-            <a href="donate.html" class="donate-btn">☕ Buy me a coffee</a>
+            <a href="../donate.html" class="donate-btn">☕ Buy me a coffee</a>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Mutant Wizard &nbsp;&middot;&nbsp;
-           <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
-           <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+           <a href="../index.html">Home</a> &nbsp;&middot;&nbsp;
+           <a href="../privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
            <a href="mailto:sendtowizzard@gmail.com">Contact</a>
         </p>
     </footer>
@@ -141,7 +130,7 @@
 <script>
 // --- Standard Sidebar Menu Injection ---
 var cacheBuster = '?v=' + new Date().getTime();
-fetch('menu.html' + cacheBuster)
+fetch('../menu.html' + cacheBuster)
     .then(r => r.ok ? r.text() : Promise.reject('HTTP ' + r.status))
     .then(html => {
         var doc = new DOMParser().parseFromString(html, 'text/html');

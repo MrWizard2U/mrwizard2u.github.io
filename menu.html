@@ -8,11 +8,11 @@
 
     <!-- Banner image — sits above all nav links, height matches .site-header -->
     <img class="snav-banner"
-         src="images/WizardSoftware.png"
+         src="../images/WizardSoftware.png"
          alt="Mutant Wizard — Independent Software Development">
 
     <!-- ─── Home ───────────────────────────────────── -->
-    <a class="snav-link" href="index.html">Home</a>
+    <a class="snav-link" href="../index.html">Home</a>
 
     <div class="snav-divider"></div>
 
@@ -29,9 +29,9 @@
             <span class="snav-chevron">&#8250;</span>
         </div>
         <div class="snav-sub">
-            <a href="sysbar-about.html">About SysBar</a>
-            <a href="sysbar-guide.html">User Guide</a>
-            <a href="sysbar-gallery.html">Gallery</a>
+            <a href="../sysbar/sysbar-about.html">About SysBar</a>
+            <a href="../sysbar/sysbar-guide.html">User Guide</a>
+            <a href="../sysbar/sysbar-gallery.html">Gallery</a>
             <a href="https://github.com/MrWizard2U/SysBar" target="_blank" rel="noopener">Source Code Repository ↗</a>
         </div>
     </div>
@@ -46,9 +46,9 @@
             <span class="snav-chevron">&#8250;</span>
         </div>
         <div class="snav-sub">
-            <a href="clockalarm-about.html">About ClockAlarm</a>
-            <a href="clockalarm-guide.html">User Guide</a>
-            <a href="clockalarm-gallery.html">Gallery</a>
+            <a href="../clockalarm/clockalarm-about.html">About ClockAlarm</a>
+            <a href="../clockalarm/clockalarm-guide.html">User Guide</a>
+            <a href="../clockalarm/clockalarm-gallery.html">Gallery</a>
             <a href="https://github.com/MrWizard2U/ClockAlarm" target="_blank" rel="noopener">Source Code Repository ↗</a>
         </div>
     </div>
@@ -59,10 +59,10 @@
     <div class="snav-group">Resources</div>
 
     <!-- ─── Site-wide links ──────────────────────────── -->
-    <a class="snav-link" href="tech-support.html">Tech Support</a>
-    <a class="snav-link" href="privacy.html">Privacy Policy</a>
-    <a class="snav-link" href="license.html">Software License</a>
-    <a class="snav-link snav-link--coffee" href="donate.html">☕ Buy Me a Coffee</a>
+    <a class="snav-link" href="../tech-support.html">Tech Support</a>
+    <a class="snav-link" href="../privacy.html">Privacy Policy</a>
+    <a class="snav-link" href="../license.html">Software License</a>
+    <a class="snav-link snav-link--coffee" href="../donate.html">☕ Buy Me a Coffee</a>
 
 </nav>
 
@@ -99,17 +99,19 @@
     });
 
     // ── Auto-expand active submenu based on URL ───────────────────────────────
-    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    
+    var currentFile = window.location.pathname.split('/').pop() || 'index.html';
+
     document.querySelectorAll('.snav-sub a').forEach(function (link) {
         var href = link.getAttribute('href');
-        
-        // If the link points to the page we are currently on:
-        if (href && href !== '#' && (href === currentPath || window.location.href.endsWith(href))) {
-            
-            // 1. Visually highlight the active text
+        if (!href || href === '#') return;
+
+        // Compare just the filename part of the href to the current page filename
+        var linkFile = href.split('/').pop();
+
+        if (linkFile === currentFile) {
+            // 1. Visually highlight the active link
             link.style.color = '#fff';
-            
+
             // 2. Open the parent submenu automatically
             var sub = link.closest('.snav-sub');
             if (sub) {

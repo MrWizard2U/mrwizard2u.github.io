@@ -297,6 +297,19 @@ h2.section-label { margin-top: 32px; margin-bottom: 12px; font-weight: 400; }
     font-family: 'Courier New', monospace; border-radius: 0 0 var(--rad-lg) var(--rad-lg);
 }
 
+/* Gallery 2-column grid — desktop only */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 0;
+}
+.gallery-grid .gallery-card { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+}
+
 /* Lightbox Overlay */
 .lightbox {
     display: none; position: fixed; z-index: 9999; padding-top: 40px;
