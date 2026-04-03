@@ -121,6 +121,7 @@ h2.section-label { margin-top: 32px; margin-bottom: 12px; font-weight: 400; }
 
 .card h4 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
 .text-dim { color: var(--text-dim); }
+img.icon { vertical-align: bottom; }
 
 /* =========================================================
    BUTTONS & INPUTS
